@@ -904,6 +904,7 @@ body.nav-active { overflow: hidden; }
   .flex-list {
     display: flex;
     flex-wrap: wrap;
+
     justify-content: center;
    }
 
@@ -953,63 +954,82 @@ body.nav-active { overflow: hidden; }
 
 
 /*-----------------------------------*\
-  #rooms
+  #Amenities
 \*-----------------------------------*/
 
-.rooms .section-text { margin-block: 15px 30px; }
-
-.rooms .btn {
-  margin-inline: auto;
-  margin-block-start: 26px;
+.amenities-section {
+  padding: 60px 20px;
+  text-align: center;
 }
 
-.rooms .container {
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Section title + subtitle */
+.section-title {
+  font-size: 2rem; /* ~32px */
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 0.875rem; /* 14px */
+  color: #666666;
+  margin-bottom: 40px;
+}
+
+/* ================================
+   GRID LAYOUT FOR AMENITIES
+   (4 columns x 2 rows)
+   ================================ */
+.amenities-grid {
   display: grid;
-  gap: 120px;
+  grid-template-columns: repeat(2, 1fr); /* exactly 4 columns */
+  grid-auto-rows: auto;                  /* rows will size by content */
+  gap: 30px 20px;                         /* 30px vertical gap, 20px horizontal */
+  justify-items: center;                  /* center each cell horizontally */
+  align-items: start;                     /* align each cell content at top */
+  margin-inline: auto;
+  max-width: 900px;                       /* optional: keep grid from stretching too wide */
 }
 
-.rooms-banner {
-  position: relative;
-  margin-block-end: 120px;
+/* Individual “card” */
+.amenity-card {
+  background-color: #ffffff;
+  width: 140px;               /* fixed width so all cards line up evenly */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.rooms-banner > .w-100 { padding-inline-start: 50px; }
-
-.rooms .abs-img { position: absolute; }
-
-.rooms .abs-img::before { z-index: -1; }
-
-.rooms .abs-img-1 {
-  bottom: -120px;
-  left: 0;
-  width: 150px;
-  padding-block: 50px;
+.amenity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.rooms .abs-img-2 {
-  top: -65px;
-  right: 0;
-  overflow: hidden;
+/* Icon styling (Boxicons) */
+.amenity-card i.bx {
+  font-size: 2.5rem;          /* ~40px */
+  color: #008c7e;             /* teal‐ish accent color */
+  margin-bottom: 12px;
 }
 
-.rooms .abs-img-1::before {
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  background-image: url('../images/img-pattern.svg');
-  background-repeat: repeat;
+/* Amenity label text */
+.amenity-card p {
+  margin: 0;
+  font-size: 0.875rem;        /* 14px */
+  font-weight: 500;
+  color: #1a1a1a;
+  text-align: center;
+  line-height: 1.3;
 }
-
-.rooms .abs-img-2::before {
-  inset: 0;
-  background-image: url('../images/badge-2-bg.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  animation: rotate360 15s linear infinite;
-}
-
 
 
 
