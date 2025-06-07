@@ -792,7 +792,7 @@ body.nav-active { overflow: hidden; }
   height: 100%;
   display: grid;
   place-content: center;
-  padding-block-start: 100px;
+  padding-block-start: 70px;
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-3);
@@ -825,9 +825,11 @@ body.nav-active { overflow: hidden; }
   100% { transform: scale(1.15); }
 }
 
-.hero .section-subtitle::after { width: 6em;  margin-block: 1em; }
+.hero .section-subtitle::after { width: 15vw; height: 0.5em; }
 
-.hero .display-1 { padding-inline: 1em; }
+.hero .section-subtitle { margin-block-end: 4em; }
+
+.hero .display-1 { padding-inline: 1.5em; }
 
 .hero-text { margin: 2em; }
 
@@ -839,8 +841,8 @@ body.nav-active { overflow: hidden; }
   right: 15px;
   z-index: 2;
   background-color: var(--gold-crayola);
-  width: 110px;
-  height: 110px;
+  width: 5em;
+  height: 5em;
   padding: 12px;
   transform: scale(0.6);
 }
@@ -913,7 +915,7 @@ body.nav-active { overflow: hidden; }
     padding: 10px;
    }
 
-
+.accomodation .section-subtitle { margin-block-end: 10px; }
 
 .accomodation .section-title { margin-block-end: 16px; }
 
@@ -971,8 +973,8 @@ body.nav-active { overflow: hidden; }
 .section-title {
   font-size: 2rem; /* ~32px */
   font-weight: bold;
-  color: #1a1a1a;
-  margin-bottom: 10px;
+  color: var(--quick-silver);
+  margin-block: 2em;
 }
 
 .section-subtitle {
@@ -999,9 +1001,10 @@ body.nav-active { overflow: hidden; }
 /* Individual “card” */
 .amenity-card {
   background-color: #ffffff;
-  width: 140px;               /* fixed width so all cards line up evenly */
+  width: 6em;   
+  height: 6em;            /* fixed width so all cards line up evenly */
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
@@ -1011,7 +1014,7 @@ body.nav-active { overflow: hidden; }
 
 .amenity-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgb(0, 217, 255);
 }
 
 /* Icon styling (Boxicons) */
@@ -1499,6 +1502,7 @@ textarea.input-field {
     max-width: 420px;
     margin-inline: auto;
   }
+  .section-title {color: var(--quick-silver);}
 
   .contact-number { --fontSize-body-1: 3rem; }
 
@@ -2024,16 +2028,24 @@ textarea.input-field {
   }
 
   .section-subtitle {
-    font-size: 1.5em;
+    font-size: 1em;
     margin-block: 5em;
   }
 
+   .section-title {
+    font-size: 3em;
+  }
 
   /**
-   * rooms
+   * Amenities
    */
 
-  .rooms { padding-block: 170px 100px; }
+  .amenities-grid {
+    width: 100vw;
+    height: 40vh;
+  grid-template-columns: repeat(4, 1fr); /* exactly 4 columns */
+                    /* optional: keep grid from stretching too wide */
+}
 
 
 
