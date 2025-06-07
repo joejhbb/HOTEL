@@ -181,8 +181,8 @@
           <p class="headline-1 navbar-title">Visit Us</p>
 
           <address class="body-4">
-            Restaurant St, Delicious City, <br>
-            London 9578, UK
+            Pahingalay Street, Sta. Mesa, <br>
+            Manila, Philippines
           </address>
 
           <p class="body-4 navbar-text">Open: 9.30 am - 2.30pm</p>
@@ -200,11 +200,10 @@
 
       </nav>
 
-      <a href="#" class="btn btn-secondary">
+      <button class="btn btn-secondary" data-modal-target="#authModal" data-modal-open>
         <span class="text text-1">Sign In</span>
-
         <span class="text text-2" aria-hidden="true">Sign In</span>
-      </a>
+      </button>
 
       <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
         <span class="line line-1"></span>
@@ -617,12 +616,7 @@
 
             <form action="" class="form-left">
 
-              <h2 class="headline-1 text-center">Online booking</h2>
-
-              <p class="form-text text-center">
-                Booking request <a href="tel:+88123123456" class="link">+88-123-123456</a>
-                or fill out the order form
-              </p>
+              <h2 class="headline-1 text-center">Message Us</h2>
 
               <div class="input-wrapper">
                 <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
@@ -630,64 +624,12 @@
                 <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
               </div>
 
-              <div class="input-wrapper">
-
-                <div class="icon-wrapper">
-                  <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-
-                  <select name="person" class="input-field">
-                    <option value="1-person">1 Person</option>
-                    <option value="2-person">2 Person</option>
-                    <option value="3-person">3 Person</option>
-                    <option value="4-person">4 Person</option>
-                    <option value="5-person">5 Person</option>
-                    <option value="6-person">6 Person</option>
-                    <option value="7-person">7 Person</option>
-                  </select>
-
-                  <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
-                </div>
-
-                <div class="icon-wrapper">
-                  <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
-
-                  <input type="date" name="booking-date" class="input-field">
-
-                  <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
-                </div>
-
-                <div class="icon-wrapper">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <select name="person" class="input-field">
-                    <option value="08:00am">08 : 00 am</option>
-                    <option value="09:00am">09 : 00 am</option>
-                    <option value="010:00am">10 : 00 am</option>
-                    <option value="011:00am">11 : 00 am</option>
-                    <option value="012:00am">12 : 00 am</option>
-                    <option value="01:00pm">01 : 00 pm</option>
-                    <option value="02:00pm">02 : 00 pm</option>
-                    <option value="03:00pm">03 : 00 pm</option>
-                    <option value="04:00pm">04 : 00 pm</option>
-                    <option value="05:00pm">05 : 00 pm</option>
-                    <option value="06:00pm">06 : 00 pm</option>
-                    <option value="07:00pm">07 : 00 pm</option>
-                    <option value="08:00pm">08 : 00 pm</option>
-                    <option value="09:00pm">09 : 00 pm</option>
-                    <option value="10:00pm">10 : 00 pm</option>
-                  </select>
-
-                  <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
-                </div>
-
-              </div>
-
               <textarea name="message" placeholder="Message" autocomplete="off" class="input-field"></textarea>
 
               <button type="submit" class="btn btn-secondary">
-                <span class="text text-1">Book A Room</span>
+                <span class="text text-1">Send Message</span>
 
-                <span class="text text-2" aria-hidden="true">Book A Room</span>
+                <span class="text text-2" aria-hidden="true">Send Message</span>
               </button>
 
             </form>
@@ -756,7 +698,8 @@
           <a href="tel:+88123123456" class="body-4 contact-link">Booking Request : +88-123-123456</a>
 
           <p class="body-4">
-            Open : 09:00 am - 01:00 pm
+            Open : Monday to Sunday <br>
+            24 Hours Service
           </p>
 
           <div class="wrapper">
@@ -849,6 +792,102 @@
   </footer>
 
 
+  <!--
+    - #AUTH MODAL
+  -->
+  <div class="modal-overlay" id="authModal" data-modal>
+    <div class="auth-modal">
+      <button class="close-modal-btn" aria-label="Close modal" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="modal-content">
+        <div class="modal-tabs">
+          <button class="tab-button active" data-tab-target="signin">Sign In</button>
+          <button class="tab-button" data-tab-target="signup">Sign Up</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <div class="form-section active" id="signin-form">
+          <h2 class="title-2 text-center">Welcome Back!</h2>
+          <form class="auth-form" action="#" method="post">
+            <div class="form-group">
+              <label for="signin-email" class="label-2">Email</label>
+              <input type="email" id="signin-email" name="email" class="form-input" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <label for="signin-password" class="label-2">Password</label>
+              <input type="password" id="signin-password" name="password" class="form-input" placeholder="Password" required>
+            </div>
+            <button type="submit" class="form-button btn btn-secondary">Sign In</button>
+            <p class="text-center body-4 toggle-link">Don't have an account? <a href="#" data-toggle-tab="signup">Sign Up</a></p>
+          </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-section" id="signup-form">
+          <h2 class="title-2 text-center">Create your account</h2>
+          <p class="body-4 text-center" style="margin-bottom: 25px;">Join us to enjoy your perfect getaway</p>
+          <form class="auth-form" action="#" method="post">
+            <div class="form-group">
+              <label for="signup-full-name" class="label-2">Full Name</label>
+              <div class="icon-wrapper">
+                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                <input type="text" id="signup-full-name" name="full_name" class="form-input" placeholder="Enter your full name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="signup-email" class="label-2">Email Address</label>
+              <div class="icon-wrapper">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                <input type="email" id="signup-email" name="email" class="form-input" placeholder="Enter your Email" required>
+              </div>
+            </div>
+            <div class="form-group form-group-inline">
+                <div class="form-sub-group">
+                    <label for="signup-contact-number" class="label-2">Contact Number</label>
+                    <div class="icon-wrapper">
+                        <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+                        <input type="tel" id="signup-contact-number" name="contact_number" class="form-input" placeholder="+63 XXX XXX XXXX" required>
+                    </div>
+                </div>
+                <div class="form-sub-group">
+                    <label for="signup-age" class="label-2">Age</label>
+                    <div class="icon-wrapper">
+                        <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                        <input type="number" id="signup-age" name="age" class="form-input" placeholder="Age" min="1" max="120" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="signup-nationality" class="label-2">Nationality</label>
+              <div class="icon-wrapper">
+                <ion-icon name="flag-outline" aria-hidden="true"></ion-icon>
+                <input type="text" id="signup-nationality" name="nationality" class="form-input" placeholder="Enter your Nationality" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="signup-address" class="label-2">Address</label>
+              <div class="icon-wrapper">
+                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+                <input type="text" id="signup-address" name="address" class="form-input" placeholder="Enter your Address" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="signup-password" class="label-2">Password</label>
+              <input type="password" id="signup-password-new" name="password" class="form-input" placeholder="Create Password" required>
+            </div>
+            <div class="form-group">
+              <label for="signup-confirm-password" class="label-2">Confirm Password</label>
+              <input type="password" id="signup-confirm-password-new" name="confirm_password" class="form-input" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="form-button btn btn-secondary">Sign Up</button>
+            <p class="text-center body-4 toggle-link">Already have an account? <a href="#" data-toggle-tab="signin">Sign In</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!--
