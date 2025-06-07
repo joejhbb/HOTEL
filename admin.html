@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pahingalay Hotel Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to your external CSS file (e.g., style.css) -->
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <style>
+        /* Custom styles for the Inter font and general layout */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+
+        /* Hide scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        * {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;    /* Firefox */
+        }
+
+        /* Custom styles for improved mobile and XR readability */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 50;
+                transition: transform 0.3s ease-in-out;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .content-area {
+                margin-left: 0;
+            }
+            .hamburger-menu {
+                display: block; /* Show hamburger menu on small screens */
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen bg-gray-900 text-white">
+
+    <!-- Hamburger Menu Icon for Mobile -->
+    <div class="hamburger-menu p-4 md:hidden absolute top-0 left-0 z-50 cursor-pointer">
+        <i class="fas fa-bars text-white text-2xl" id="hamburgerIcon"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar w-64 bg-gray-800 text-gray-300 p-6 flex flex-col justify-between rounded-lg m-4 md:rounded-r-none md:m-0 md:static">
+        <div>
+            <div class="text-2xl font-bold text-teal-400 mb-8">PAHINGALAY HOTEL</div>
+            <nav>
+                <ul>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center p-3 rounded-lg bg-gray-700 text-white shadow-md transition duration-200 hover:bg-gray-600">
+                            <i class="fas fa-tachometer-alt mr-3"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition duration-200">
+                            <i class="fas fa-book mr-3"></i> Bookings
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition duration-200">
+                            <i class="fas fa-users mr-3"></i> Guests
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-700 transition duration-200">
+                            <i class="fas fa-door-open mr-3"></i> Rooms
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="mt-auto">
+            <div class="flex items-center mb-4 p-3 bg-gray-700 rounded-lg shadow-inner">
+                <img src="https://placehold.co/40x40/0d9488/ffffff?text=AU" alt="Admin User" class="rounded-full mr-3 border-2 border-teal-400">
+                <div>
+                    <div class="font-semibold text-white">Admin User</div>
+                    <div class="text-sm text-gray-400">admin@pahingalayhotel.com</div>
+                </div>
+            </div>
+            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-700 text-red-300 hover:text-white transition duration-200">
+                <i class="fas fa-sign-out-alt mr-3"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-6 md:p-8 bg-gray-900 content-area">
+        <header class="mb-8">
+            <h1 class="text-4xl font-extrabold text-white mb-2">Dashboard</h1>
+            <p class="text-gray-400 text-lg">Welcome back, Admin. Here's what's happening with your hotel today.</p>
+        </header>
+
+        <!-- Metric Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <div class="bg-gray-800 p-6 rounded-xl shadow-lg flex items-center justify-between transition-transform duration-200 hover:scale-105">
+                <div>
+                    <p class="text-gray-400 text-sm">New Bookings</p>
+                    <h2 class="text-4xl font-bold text-white mt-1">1</h2>
+                    <p class="text-green-400 text-sm flex items-center"><i class="fas fa-arrow-up mr-1 text-xs"></i> +8% from yesterday</p>
+                </div>
+                <div class="text-teal-400 text-5xl">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-xl shadow-lg flex items-center justify-between transition-transform duration-200 hover:scale-105">
+                <div>
+                    <p class="text-gray-400 text-sm">Check-Ins Today</p>
+                    <h2 class="text-4xl font-bold text-white mt-1">0</h2>
+                    <p class="text-amber-400 text-sm flex items-center"><i class="fas fa-info-circle mr-1 text-xs"></i> 25% already checked in</p>
+                </div>
+                <div class="text-blue-400 text-5xl">
+                    <i class="fas fa-users-line"></i>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-xl shadow-lg flex items-center justify-between transition-transform duration-200 hover:scale-105">
+                <div>
+                    <p class="text-gray-400 text-sm">Available Rooms</p>
+                    <h2 class="text-4xl font-bold text-white mt-1">4</h2>
+                    <p class="text-yellow-400 text-sm flex items-center"><i class="fas fa-chart-line mr-1 text-xs"></i> 25% occupancy rate</p>
+                </div>
+                <div class="text-orange-400 text-5xl">
+                    <i class="fas fa-hotel"></i>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-xl shadow-lg flex items-center justify-between transition-transform duration-200 hover:scale-105">
+                <div>
+                    <p class="text-gray-400 text-sm">Revenue Today</p>
+                    <h2 class="text-4xl font-bold text-white mt-1">1,850</h2>
+                    <p class="text-green-400 text-sm flex items-center"><i class="fas fa-arrow-up mr-1 text-xs"></i> +12% from last week</p>
+                </div>
+                <div class="text-emerald-400 text-5xl">
+                    <i class="fas fa-wallet"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Reservations / Guests Section -->
+        <section class="bg-gray-800 p-6 rounded-xl shadow-lg">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
+                <div class="flex space-x-4 mb-4 sm:mb-0">
+                    <button id="reservationsTab" class="py-2 px-4 rounded-full font-semibold text-white bg-teal-600 shadow-md transition duration-200 hover:bg-teal-700">
+                        Recent Reservations
+                    </button>
+                    <button id="guestsTab" class="py-2 px-4 rounded-full font-semibold text-gray-400 hover:bg-gray-700 transition duration-200">
+                        Recent Guests
+                    </button>
+                </div>
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+                    <button class="flex items-center justify-center p-3 rounded-full text-gray-400 hover:bg-gray-700 transition duration-200">
+                        <i class="fas fa-filter mr-2"></i> Filter
+                    </button>
+                    <button class="flex items-center justify-center p-3 rounded-full text-gray-400 hover:bg-gray-700 transition duration-200">
+                        <i class="fas fa-download mr-2"></i> Export
+                    </button>
+                    <button class="flex items-center justify-center p-3 rounded-full bg-teal-600 text-white shadow-md transition duration-200 hover:bg-teal-700">
+                        <i class="fas fa-plus mr-2"></i> New Reservation
+                    </button>
+                </div>
+            </div>
+
+            <!-- Reservations Table -->
+            <div id="reservationsContent" class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-700">
+                    <thead class="bg-gray-700">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider rounded-tl-lg">Reservation ID</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Guest Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Room Type</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Check-in</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Check-out</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider rounded-tr-lg">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-gray-800 divide-y divide-gray-700">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">R-0000101</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Mary Grace Piattos</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Double</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">01/10/2024</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">01/13/2024</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-800 text-green-300">Confirmed</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <button class="text-indigo-400 hover:text-indigo-600 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-red-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">R-0000236</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Arman McConnell</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Single</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">02/03/2024</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">02/04/2024</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-800 text-yellow-300">Pending</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <button class="text-indigo-400 hover:text-indigo-600 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-red-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">R-0000ACK</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Elias Montoya</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Family</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">02/14/2024</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">02/19/2024</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-600 text-gray-300">Checked-out</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <button class="text-indigo-400 hover:text-indigo-600 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-red-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Guests Table (Initially Hidden) -->
+            <div id="guestsContent" class="overflow-x-auto hidden">
+                <table class="min-w-full divide-y divide-gray-700">
+                    <thead class="bg-gray-700">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider rounded-tl-lg">Guest ID</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Guest Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Phone</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider rounded-tr-lg">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-gray-800 divide-y divide-gray-700">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">G-0000001</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Mary Grace Piattos</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">mary.grace@example.com</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">+1 123 456 7890</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <button class="text-indigo-400 hover:text-indigo-600 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-red-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">G-0000002</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Arman McConnell</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">arman.mcc@example.com</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <button class="text-indigo-400 hover:text-indigo-600 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-red-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Link to your external JavaScript file (e.g., script.js) -->
+    <script src="/assets/js/admin.js"></script>
+</body>
+</html>
