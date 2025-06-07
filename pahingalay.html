@@ -4,50 +4,52 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="c">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 
+  <!--
     - primary meta tags
   -->
   <title>PAHINGALAY HOTEL</title>
   <meta name="title" content="PAHINGALAY HOTEL">
   <meta name="description" content="This is a PROJECT made by GROUP 4">
 
-  <!-- 
+  <!--
     - logo icon
   -->
-  <link rel="shortcut icon" href="/pahingalay.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./assets/images/Pahingalaylogo.png" type="image/png"> <!-- Changed to png as per common practice for favicon -->
 
-  <!-- 
+  <!--
     - boxicons cdn
   -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
 
-  <!-- 
+  <!--
     - google font link
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
 
-  <!-- 
+  <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="/assets/css/pahingalay.css">
+  <link rel="stylesheet" href="./assets/css/pahingalay.css">
 
-  <!-- 
+  <!--
     - preload images
   -->
-  <link rel="preload" as="image" href="/assets/images/pahingalay-slider1.jpg">
-  <link rel="preload" as="image" href="/assets/images/pahingalay-slider2.jpg">
-  <link rel="preload" as="image" href="/assets/images/pahingalay-slider3.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg">
 
 </head>
 
 <body id="top">
 
-  <!-- 
+  <!--
     - #PRELOADER
   -->
 
@@ -59,8 +61,7 @@
 
 
 
-
-  <!-- 
+  <!--
     - #TOP BAR
   -->
 
@@ -111,8 +112,7 @@
 
 
 
-
-  <!-- 
+  <!--
     - #HEADER
   -->
 
@@ -120,7 +120,7 @@
     <div class="container">
 
       <a href="#" class="logo">
-        <img src="./assets/images/Pahingalaylogo.png" width=100 alt="Pahingalay- logo">
+        <img src="./assets/images/Pahingalaylogo.png" width="100" alt="Pahingalay- logo">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -224,7 +224,7 @@
   <main>
     <article>
 
-      <!-- 
+      <!--
         - #HERO
       -->
 
@@ -325,8 +325,7 @@
 
 
 
-
-      <!-- 
+      <!--
         - #ACCOMODATION
       -->
 
@@ -426,16 +425,16 @@
 
                   <h3 class="title-4 card-title">
                     <a href="#">Deluxe Room</a>
-                  </h3>                                                        
+                  </h3>
 
                   <a href="#" class="btn-text hover-underline label-2">View Room</a>
 
-                </div>                                   
+                </div>
 
-              </div>              
-            </li>     
+              </div>
+            </li>
 
-          </ul>                
+          </ul>
 
           <img src="./assets/images/shape-1.png" width="246" height="412" loading="lazy" alt="shape"
             class="shape shape-1 move-anim">
@@ -448,8 +447,7 @@
 
 
 
-
-      <!-- 
+      <!--
         - #Ammenities
       -->
 
@@ -457,7 +455,7 @@
     <div class="container">
       <h2 class="section-title">Hotel Amenities</h2>
       <p class="section-subtitle">
-        Enjoy our wide range of amenities designed to make your stay comforRoom
+        Enjoy our wide range of amenities designed to make your stay comfortable
         and enjoyable
       </p>
 
@@ -471,7 +469,7 @@
         <!-- Breakfast -->
         <div class="amenity-card">
           <i class="bx bx-coffee"></i>
-          <p>Single Room</p>
+          <p>Breakfast</p>
         </div>
 
         <!-- Restaurant -->
@@ -516,7 +514,7 @@
 
 
 
-      <!-- 
+      <!--
         - #GUEST EXPERIENCES
       -->
 
@@ -574,210 +572,7 @@
   </section>
 
 
-
-
-
-      <!-- 
-        - #MENU
-      -->
-
-      <!-- <section class="section menu" aria-label="menu-label" id="menu">
-        <div class="container">
-
-          <p class="section-subtitle text-center label-2">Special Selection</p>
-
-          <h2 class="headline-1 section-title text-center">Delicious Menu</h2>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="menu-card hover:card">
-
-                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-1.png" width="100" height="100" loading="lazy" alt="Greek Salad"
-                    class="img-cover">
-                </figure>
-
-                <div>
-
-                  <div class="title-wrapper">
-                    <h3 class="title-3">
-                      <a href="#" class="card-title">Greek Salad</a>
-                    </h3>
-
-                    <span class="badge label-1">Seasonal</span>
-
-                    <span class="span title-2">$25.50</span>
-                  </div>
-
-                  <p class="card-text label-1">
-                    Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="menu-card hover:card">
-
-                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-2.png" width="100" height="100" loading="lazy" alt="Lasagne"
-                    class="img-cover">
-                </figure>
-
-                <div>
-
-                  <div class="title-wrapper">
-                    <h3 class="title-3">
-                      <a href="#" class="card-title">Lasagne</a>
-                    </h3>
-
-                    <span class="span title-2">$40.00</span>
-                  </div>
-
-                  <p class="card-text label-1">
-                    VegeRooms, cheeses, ground meats, tomato sauce, seasonings and spices
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="menu-card hover:card">
-
-                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-3.png" width="100" height="100" loading="lazy" alt="Butternut Pumpkin"
-                    class="img-cover">
-                </figure>
-
-                <div>
-
-                  <div class="title-wrapper">
-                    <h3 class="title-3">
-                      <a href="#" class="card-title">Butternut Pumpkin</a>
-                    </h3>
-
-                    <span class="span title-2">$10.00</span>
-                  </div>
-
-                  <p class="card-text label-1">
-                    Typesetting industry lorem Lorem Ipsum is simply dummy text of the priand.
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="menu-card hover:card">
-
-                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-4.png" width="100" height="100" loading="lazy" alt="Tokusen Wagyu"
-                    class="img-cover">
-                </figure>
-
-                <div>
-
-                  <div class="title-wrapper">
-                    <h3 class="title-3">
-                      <a href="#" class="card-title">Tokusen Wagyu</a>
-                    </h3>
-
-                    <span class="badge label-1">New</span>
-
-                    <span class="span title-2">$39.00</span>
-                  </div>
-
-                  <p class="card-text label-1">
-                    VegeRooms, cheeses, ground meats, tomato sauce, seasonings and spices.
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="menu-card hover:card">
-
-                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-5.png" width="100" height="100" loading="lazy" alt="Olivas Rellenas"
-                    class="img-cover">
-                </figure>
-
-                <div>
-
-                  <div class="title-wrapper">
-                    <h3 class="title-3">
-                      <a href="#" class="card-title">Olivas Rellenas</a>
-                    </h3>
-
-                    <span class="span title-2">$25.00</span>
-                  </div>
-
-                  <p class="card-text label-1">
-                    Avocados with crab meat, red onion, crab salad stuffed red bell pepper and green bell pepper.
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="menu-card hover:card">
-
-                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-6.png" width="100" height="100" loading="lazy" alt="Opu Fish"
-                    class="img-cover">
-                </figure>
-
-                <div>
-
-                  <div class="title-wrapper">
-                    <h3 class="title-3">
-                      <a href="#" class="card-title">Opu Fish</a>
-                    </h3>
-
-                    <span class="span title-2">$49.00</span>
-                  </div>
-
-                  <p class="card-text label-1">
-                    VegeRooms, cheeses, ground meats, tomato sauce, seasonings and spices
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-          <p class="menu-text text-center">
-            During winter daily from <span class="span">7:00 pm</span> to <span class="span">9:00 pm</span>
-          </p>
-
-          <a href="#" class="btn btn-primary">
-            <span class="text text-1">View All Menu</span>
-
-            <span class="text text-2" aria-hidden="true">View All Menu</span>
-          </a>
-
-          <img src="./assets/images/shape-5.png" width="921" height="1036" loading="lazy" alt="shape"
-            class="shape shape-2 move-anim">
-          <img src="./assets/images/shape-6.png" width="343" height="345" loading="lazy" alt="shape"
-            class="shape shape-3 move-anim">
-
-        </div>
-      </section>  -->
-
-
-      <!-- 
+      <!--
         - #TESTIMONIALS
       -->
 
@@ -811,8 +606,7 @@
 
 
 
-
-      <!-- 
+      <!--
         - #BOOKING
       -->
 
@@ -931,188 +725,13 @@
       </section>
 
 
-
-
-
-      <!-- 
-        - #FEATURES
-      -->
-
-      <section class="section features text-center" aria-label="features">
-        <div class="container">
-
-          <p class="section-subtitle label-2">Why Choose Us</p>
-
-          <h2 class="headline-1 section-title">Our Strength</h2>
-
-          <ul class="grid-list">
-
-            <li class="feature-item">
-              <div class="feature-card">
-
-                <div class="card-icon">
-                  <img src="./assets/images/features-icon-1.png" width="100" height="80" loading="lazy" alt="icon">
-                </div>
-
-                <h3 class="title-2 card-title">Hygienic Food</h3>
-
-                <p class="label-1 card-text">Lorem Ipsum is simply dummy printing and typesetting.</p>
-
-              </div>
-            </li>
-
-            <li class="feature-item">
-              <div class="feature-card">
-
-                <div class="card-icon">
-                  <img src="./assets/images/features-icon-2.png" width="100" height="80" loading="lazy" alt="icon">
-                </div>
-
-                <h3 class="title-2 card-title">Fresh Environment</h3>
-
-                <p class="label-1 card-text">Lorem Ipsum is simply dummy printing and typesetting.</p>
-
-              </div>
-            </li>
-
-            <li class="feature-item">
-              <div class="feature-card">
-
-                <div class="card-icon">
-                  <img src="./assets/images/features-icon-3.png" width="100" height="80" loading="lazy" alt="icon">
-                </div>
-
-                <h3 class="title-2 card-title">Skilled Chefs</h3>
-
-                <p class="label-1 card-text">Lorem Ipsum is simply dummy printing and typesetting.</p>
-
-              </div>
-            </li>
-
-            <li class="feature-item">
-              <div class="feature-card">
-
-                <div class="card-icon">
-                  <img src="./assets/images/features-icon-4.png" width="100" height="80" loading="lazy" alt="icon">
-                </div>
-
-                <h3 class="title-2 card-title">Event & Party</h3>
-
-                <p class="label-1 card-text">Lorem Ipsum is simply dummy printing and typesetting.</p>
-
-              </div>
-            </li>
-
-          </ul>
-
-          <img src="./assets/images/shape-7.png" width="208" height="178" loading="lazy" alt="shape"
-            class="shape shape-1">
-
-          <img src="./assets/images/shape-8.png" width="120" height="115" loading="lazy" alt="shape"
-            class="shape shape-2">
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #EVENT
-      -->
-
-      <section class="section event bg-black-10" aria-label="event">
-        <div class="container">
-
-          <p class="section-subtitle label-2 text-center">Recent Updates</p>
-
-          <h2 class="section-title headline-1 text-center">Upcoming Event</h2>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="event-card has-before hover:shine">
-
-                <div class="card-banner img-holder" style="--width: 350; --height: 450;">
-                  <img src="./assets/images/event-1.jpg" width="350" height="450" loading="lazy"
-                    alt="Flavour so good you’ll try to eat with your eyes." class="img-cover">
-
-                  <time class="publish-date label-2" datetime="2022-09-15">15/09/2022</time>
-                </div>
-
-                <div class="card-content">
-                  <p class="card-subtitle label-2 text-center">Food, Flavour</p>
-
-                  <h3 class="card-title title-2 text-center">
-                    Flavour so good you’ll try to eat with your eyes.
-                  </h3>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="event-card has-before hover:shine">
-
-                <div class="card-banner img-holder" style="--width: 350; --height: 450;">
-                  <img src="./assets/images/event-2.jpg" width="350" height="450" loading="lazy"
-                    alt="Flavour so good you’ll try to eat with your eyes." class="img-cover">
-
-                  <time class="publish-date label-2" datetime="2022-09-08">08/09/2022</time>
-                </div>
-
-                <div class="card-content">
-                  <p class="card-subtitle label-2 text-center">Healthy Food</p>
-
-                  <h3 class="card-title title-2 text-center">
-                    Flavour so good you’ll try to eat with your eyes.
-                  </h3>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="event-card has-before hover:shine">
-
-                <div class="card-banner img-holder" style="--width: 350; --height: 450;">
-                  <img src="./assets/images/event-3.jpg" width="350" height="450" loading="lazy"
-                    alt="Flavour so good you’ll try to eat with your eyes." class="img-cover">
-
-                  <time class="publish-date label-2" datetime="2022-09-03">03/09/2022</time>
-                </div>
-
-                <div class="card-content">
-                  <p class="card-subtitle label-2 text-center">Recipie</p>
-
-                  <h3 class="card-title title-2 text-center">
-                    Flavour so good you’ll try to eat with your eyes.
-                  </h3>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-          <a href="#" class="btn btn-primary">
-            <span class="text text-1">View Our Blog</span>
-
-            <span class="text text-2" aria-hidden="true">View Our Blog</span>
-          </a>
-
-        </div>
-      </section>
-
     </article>
   </main>
 
 
 
 
-
-  <!-- 
+  <!--
     - #FOOTER
   -->
 
@@ -1232,7 +851,7 @@
 
 
 
-  <!-- 
+  <!--
     - #BACK TO TOP
   -->
 
@@ -1243,17 +862,16 @@
 
 
 
-
-  <!-- 
+  <!--
     - custom js link
   -->
-  <script src="/assets/js/pahingalay.js"></script>
+  <script src="./assets/js/pahingalay.js"></script>
 
-  <!-- 
-    - ionicon link
+  <!--
+    - ionicon link (Updated to Ionicons v5.5.2 for better compatibility)
   -->
- <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+ <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+ <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 

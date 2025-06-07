@@ -1,38 +1,573 @@
-/* Custom styles for the Inter font and general layout */
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f3f4f6; /* Light gray background */
-}
-
-/* Hide scrollbar for a cleaner look */
-::-webkit-scrollbar {
-    display: none;
-}
+/* ---------- GLOBAL RESET & BASE ----------
+-------------------------------------------------- */
 * {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none;    /* Firefox */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  background-color: #f2f2f2;
+  color: #333;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Style all Boxicons (for spacing & size) */
+.bx {
+  vertical-align: middle;
+  margin-right: 8px;
+  font-size: 18px;
 }
 
-/* Custom styles for improved mobile and XR readability */
+/* ---------- LAYOUT ----------
+-------------------------------------------------- */
+/* Center container on very large screens */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  transition: margin-left 0.3s ease;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Ensure sidebar is visible by default */
+  transform: translateX(0);
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.sidebar-header h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.sidebar-header p {
+  font-size: 12px;
+  color: #777;
+}
+.nav-list {
+  list-style: none;
+  margin-top: 20px;
+}
+.nav-list li {
+  margin-bottom: 4px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #333;
+  font-size: 14px;
+  transition: background-color 0.15s ease;
+  width: 100%;
+  text-align: left;
+}
+.nav-item:hover {
+  background-color: #f9f9f9;
+}
+.nav-item.active {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 12px;
+}
+.user-details p {
+  font-size: 13px;
+  line-height: 1.2;
+}
+.user-details .name {
+  font-weight: bold;
+  color: #333;
+}
+.user-details .email {
+  color: #777;
+  font-size: 12px;
+}
+.logout-btn {
+  margin-top: 12px;
+  color: #c0392b;
+  font-size: 14px;
+  text-align: left;
+}
+.logout-btn:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+  transition: margin-left 0.3s ease, padding 0.3s ease;
+  width: 100%;
+}
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+/* ---------- MOBILE HEADER (hidden on desktop) ----------
+-------------------------------------------------- */
+.mobile-header {
+  display: none;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1001;
+}
+.mobile-header .hamburger {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.mobile-header .hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.mobile-header .title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ---------- STATS CARDS ----------
+-------------------------------------------------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.stat-card {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.stat-card .label {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.stat-card .label .bx {
+  font-size: 20px;
+  margin-right: 8px;
+}
+.stat-card .value-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stat-card .value {
+  font-size: 20px;
+  font-weight: bold;
+}
+.stat-card .trend {
+  font-size: 12px;
+}
+.stat-green { color: #27ae60; }
+.stat-blue  { color: #2980b9; }
+.stat-yellow{ color: #f39c12; }
+
+/* ---------- TABLE CONTAINERS (Scrollable on Mobile) ----------
+-------------------------------------------------- */
+.table-container,
+.management-table,
+.checkin-table-container {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 32px;
+}
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Force horizontal scroll on very narrow screens */
+}
+table th, table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  white-space: nowrap;
+}
+table th {
+  background-color: #f9f9f9;
+  font-weight: normal;
+  color: #555;
+}
+.status-pill {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+.pill-confirmed   { background-color: #e8f5e9; color: #388e3c; }
+.pill-pending     { background-color: #fff3cd; color: #856404; }
+.pill-checkedout  { background-color: #e0e0e0; color: #555; }
+.pill-available   { background-color: #e8f5e9; color: #388e3c; }
+.pill-occupied    { background-color: #e3f2fd; color: #1565c0; }
+
+.action-buttons button {
+  font-size: 14px;
+  color: #3498db;
+  margin-right: 8px;
+  background: none;
+  padding: 0;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+.action-buttons button .bx {
+  margin-right: 4px;
+}
+.action-buttons .btn-delete {
+  color: #c0392b;
+}
+
+.table-headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.table-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+.toggle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.toggle-buttons button {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-right: 8px;
+  background-color: #f0f0f0;
+  color: #333;
+  transition: background-color 0.15s ease;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+.toggle-buttons button.active {
+  background-color: #dcdcdc;
+  font-weight: bold;
+}
+.table-actions button {
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-left: 8px;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+.table-actions .btn-primary {
+  background-color: #27ae60;
+  color: #fff;
+  border-color: #219653;
+}
+.table-actions button:hover {
+  background-color: #eaeaea;
+}
+.btn-primary:hover {
+  background-color: #1e8449;
+}
+.table-actions button .bx {
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.search-add-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.search-input {
+  width: 300px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.add-button {
+  padding: 8px 16px;
+  background-color: #27ae60;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+  margin-bottom: 8px;
+}
+.add-button:hover {
+  background-color: #1e8449;
+}
+
+/* Modal (hidden by default) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.modal h3 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.modal label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #333;
+}
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: background-color 0.15s ease;
+}
+.btn-cancel {
+  background-color: #ccc;
+  color: #333;
+}
+.btn-cancel:hover {
+  background-color: #aaa;
+}
+.btn-save {
+  background-color: #27ae60;
+  color: #fff;
+}
+.btn-save:hover {
+  background-color: #1e8449;
+}
+
+/* ---------- HIDE ALL SECTIONS BY DEFAULT, SHOW ONLY .active-section ----------
+-------------------------------------------------- */
+.section {
+  display: none;
+}
+.section.active-section {
+  display: block;
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS ----------
+-------------------------------------------------- */
+
+/* Tablet & small desktop: 1024px–1199px */
+@media (max-width: 1199px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .search-input {
+    width: 100%;
+  }
+  .main-content {
+    padding: 24px 16px;
+  }
+}
+
+/* Mobile: ≤768px */
 @media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%);
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        z-index: 50;
-        transition: transform 0.3s ease-in-out;
-    }
-    .sidebar.open {
-        transform: translateX(0);
-    }
-    .content-area {
-        margin-left: 0;
-    }
-    .hamburger-menu {
-        display: block; /* Show hamburger menu on small screens */
-    }
+  /* Show mobile header */
+  .mobile-header {
+    display: flex;
+  }
+  /* Sidebar off‐canvas using only transform */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    /* Start hidden off to the left */
+    transform: translateX(-100%);
+  }
+  /* When “.open” is added, sidebar slides in */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .container {
+    flex-direction: column;
+  }
+  /* Push main content down to make room for fixed mobile header */
+  .main-content {
+    margin-top: 56px; /* height of mobile header */
+    padding: 80px 16px 24px; /* account for header space */
+  }
+  /* Tables: ensure horizontal scrolling */
+  table {
+    min-width: 0;
+  }
+}
+
+/* Very small phones: ≤480px */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .search-add-row {
+    flex-direction: column;
+  }
+  .search-add-row .search-input,
+  .search-add-row .add-button {
+    width: 100%;
+  }
+}
+
+/* Larger desktops: ≥1200px */
+@media (min-width: 1200px) {
+  /* Center container with max-width */
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  /* Slightly increase sidebar width */
+  .sidebar {
+    width: 280px;
+  }
+  /* Main content padding */
+  .main-content {
+    padding: 36px 48px;
+  }
+  /* Stats: keep 4 columns but increase gap */
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Extra large desktops: ≥1440px */
+@media (min-width: 1440px) {
+  /* Further increase max-width center */
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  /* Sidebar slightly wider */
+  .sidebar {
+    width: 300px;
+  }
+  /* Main content padding increases */
+  .main-content {
+    padding: 48px 64px;
+  }
+  /* Stats grid: still 4 columns, larger gap */
+  .stats-grid {
+    gap: 32px;
+  }
+  /* Increase font sizes for very large screens */
+  .page-title {
+    font-size: 28px;
+  }
+  .stat-card .value {
+    font-size: 22px;
+  }
+  table th, table td {
+    font-size: 15px;
+    padding: 14px;
+  }
+  .nav-item {
+    font-size: 15px;
+    padding: 14px 24px;
+  }
+  .sidebar-header h1 {
+    font-size: 22px;
+  }
 }

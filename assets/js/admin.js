@@ -1,45 +1,69 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const reservationsTab = document.getElementById('reservationsTab');
-    const guestsTab = document.getElementById('guestsTab');
-    const reservationsContent = document.getElementById('reservationsContent');
-    const guestsContent = document.getElementById('guestsContent');
-    const hamburgerIcon = document.getElementById('hamburgerIcon');
-    const sidebar = document.getElementById('sidebar');
+// ----- SIDEBAR TOGGLE ON MOBILE -----
+const sidebar = document.getElementById("sidebar");
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const navItems = document.querySelectorAll(".nav-item");
+const sections = document.querySelectorAll(".section");
 
-    // Function to handle tab switching
-    const switchTab = (activeTab, inactiveTab, activeContent, inactiveContent) => {
-        // Update button styles
-        activeTab.classList.add('bg-teal-600', 'text-white');
-        activeTab.classList.remove('text-gray-400', 'hover:bg-gray-700');
-        inactiveTab.classList.remove('bg-teal-600', 'text-white');
-        inactiveTab.classList.add('text-gray-400', 'hover:bg-gray-700');
-
-        // Toggle content visibility
-        activeContent.classList.remove('hidden');
-        inactiveContent.classList.add('hidden');
-    };
-
-    // Event listeners for tab buttons
-    reservationsTab.addEventListener('click', () => {
-        switchTab(reservationsTab, guestsTab, reservationsContent, guestsContent);
-    });
-
-    guestsTab.addEventListener('click', () => {
-        switchTab(guestsTab, reservationsTab, guestsContent, reservationsContent);
-    });
-
-    // Initial state: ensure reservations tab is active on load
-    switchTab(reservationsTab, guestsTab, reservationsContent, guestsContent);
-
-    // Hamburger menu functionality for mobile
-    hamburgerIcon.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-    });
-
-    // Close sidebar when clicking outside on mobile (optional but good for UX)
-    document.addEventListener('click', (event) => {
-        if (window.innerWidth <= 768 && !sidebar.contains(event.target) && !hamburgerIcon.contains(event.target)) {
-            sidebar.classList.remove('open');
-        }
-    });
+hamburgerBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
 });
+
+// ----- TAB SWITCHING (Desktop & Mobile) -----
+navItems.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // (1) Highlight selected nav item
+    navItems.forEach((el) => el.classList.remove("active"));
+    btn.classList.add("active");
+
+    // (2) Hide all sections
+    sections.forEach((sec) => sec.classList.remove("active-section"));
+
+    // (3) Show the clicked section
+    const targetId = btn.getAttribute("data-target");
+    document.getElementById(targetId).classList.add("active-section");
+
+    // (4) If on mobile, close the sidebar after selection
+    if (window.innerWidth <= 768) {
+      sidebar.classList.remove("open");
+    }
+  });
+});
+
+// (Optional) Close sidebar if user clicks outside of it on mobile
+document.addEventListener("click", (e) => {
+  if (
+    window.innerWidth <= 768 &&
+    !sidebar.contains(e.target) &&
+    !hamburgerBtn.contains(e.target)
+  ) {
+    sidebar.classList.remove("open");
+  }
+});
+
+// ----- NEW BOOKING MODAL LOGIC -----
+const bookingModal = document.getElementById("bookingModal");
+const openBookingModalBtns = [
+  document.getElementById("openBookingModalBtn"),
+  document.getElementById("openBookingModalBtn2"),
+];
+const cancelBookingBtn = document.getElementById("cancelBookingBtn");
+
+openBookingModalBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    bookingModal.style.display = "flex";
+  });
+});
+
+cancelBookingBtn.addEventListener("click", () => {
+  bookingModal.style.display = "none";
+});
+
+// Prevent actual form submission for demo
+document
+  .getElementById("bookingForm")
+  .addEventListener("submit", (e) => {
+    e.preventDefault();
+    // Here you would normally collect form data and send to server…
+    alert("Booking saved (demo only).");
+    bookingModal.style.display = "none";
+  });
